@@ -18,7 +18,13 @@ Question Link: [Leetcode 211](https://leetcode.com/problems/design-add-and-searc
 
 {Similar to Implement Trie}
 
+The add functions is very similar to Trie. For search, the caveat is the ".". Since, if you come across the period, you will have to consider every child node, the best way to do this would be DFS. 
 
+Here, you pass to the DFS function, the current node and inedex:
+- if index is length of word, then return if it is the last character in the word
+- if the character at index is a ".", call DFS on each of the nodes and return True if a single one passes
+- if there is a character other than "." at the index, check if the charcter is a key in the children hashmap, if it is, then call DFS on the child node with an incrememnt in the index
+- return False if all of them fail
 
 ---
 
